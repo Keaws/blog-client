@@ -7,10 +7,16 @@
     <link rel="stylesheet" href="vnd/bootstrap/dist/css/bootstrap.css">
     <meta name="description" content="Skeleton">
 </head>
-<body>
-Hello
+<body ng-app="blog">
+
+	<div ng-view></div>
 	
 	<script src="vnd/angular/angular.js"></script>
 	<script src="vnd/angular-route/angular-route.js"></script>
+
+	<script src="js/app.js"></script>
+	<script src="js/controllers/MainController.js"></script>
+	<script src="js/controllers/PostPageController.js"></script>
+	
 </body>
 </html>
