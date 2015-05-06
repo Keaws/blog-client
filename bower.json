@@ -1,0 +1,24 @@
+{
+  "name": "blog-client",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Juriy/blog-client",
+  "authors": [
+    "Juriy Bura <juriy.bura@gmail.com>"
+  ],
+  "description": "Test blog client",
+  "main": "index.html",
+  "keywords": [
+    "Blog",
+    "rest",
+    "client"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vnd",
+    "test",
+    "tests"
+  ]
+}
