@@ -25,7 +25,7 @@ app.service('BlogService', function($http) {
 		return $http({
 			url: 'http://localhost:3003/api/posts/' + params.postId + '/comments',
 			method: 'POST',
-			data: '{"text":"'+ params.commentText +'","summary":"'+ params.commentSummary +'"}',
+			data: '{"text":"'+ params.commentText +'","summary":"'+ params.commentSummary +'", "timestamp":"' + Date.now() + '"}',
     		headers: {
     			'Content-Type': 'application/json'
     		}
