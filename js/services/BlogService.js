@@ -7,4 +7,18 @@ app.service('BlogService', function($http) {
 		});
 	}
 
+	this.getPost = function(postId) {
+		return $http({
+			url: 'http://localhost:3003/api/posts/' + postId,
+			method: 'GET'
+		});
+	}
+
+	this.getPostComments = function(postId) {
+		return $http({
+			url: 'http://localhost:3003/api/posts/' + postId + '/comments',
+			method: 'GET'
+		});
+	}
+
 });
