@@ -14,10 +14,21 @@ app.service('BlogService', function($http) {
 		});
 	}
 
-	this.getPostComments = function(postId) {
+	this.getComments = function(postId) {
 		return $http({
 			url: 'http://localhost:3003/api/posts/' + postId + '/comments',
 			method: 'GET'
+		});
+	}
+
+	this.postComment = function(params) {
+		return $http({
+			url: 'http://localhost:3003/api/posts/' + params.postId + '/comments',
+			method: 'POST',
+			data: '{"text":"'+ params.commentText +'","summary":"'+ params.commentSummary +'"}',
+    		headers: {
+    			'Content-Type': 'application/json'
+    		}
 		});
 	}
 

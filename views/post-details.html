@@ -1,67 +1,52 @@
 <!-- Blog Post -->
+<!-- Title -->
+<h1>{{post.title}}</h1>
 
-                <!-- Title -->
-                <h1>{{post.title}}</h1>
+<!-- Author -->
+<p class="lead">
+    by <i>{{post.author}}</i>
+</p>
 
-                <!-- Author -->
-                <p class="lead">
-                    by <i>{{post.author}}</i>
-                </p>
+<!-- Date/Time -->
+<p><span class="glyphicon glyphicon-time"></span> Posted on {{post.timestamp | date}}</p>
 
-                <!-- Date/Time -->
-                <p><span class="glyphicon glyphicon-time"></span> Posted on {{post.timestamp | date}}</p>
+<hr>
 
-                <hr>
+<!-- Post Content -->
+<p class="lead">{{post.text}}</p>
 
-                <!-- Post Content -->
-                <p class="lead">{{post.text}}</p>
+<hr>
 
-                <hr>
+<!-- Blog Comments -->
 
-                <!-- Blog Comments -->
+<!-- Posted Comments -->
 
-                <!-- Comments Form -->
-                <div class="well">
-                    <h4>Leave a Comment:</h4>
-                    <form role="form">
-                        <div class="form-group">
-                            <textarea class="form-control" rows="3"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                </div>
+<!-- Comments -->
+<div class="media" ng-repeat="comment in comments">
+    <a class="pull-left" href="#/">
+        <img class="media-object" src="http://placehold.it/64x64" alt="">
+    </a>
+    <div class="media-body">
+        <h4 class="media-heading">{{comment.summary}}</h4>
+        <small>Posted on {{comment.timestamp | date}}</small>
+    <p>{{comment.text}}</p>
+    </div>
+</div>
 
-                <hr>
+<hr>
 
-                <!-- Posted Comments -->
+<!-- Comments Form -->
+<div class="well">
+    
+    <form name="commentForm" role="form">
+    	<div class="form-group">
+            <input ng-model="summary" class="form-control" placeholder="Your summary..."></input>
+        </div>
+        <div class="form-group">
+            <textarea ng-model="text" class="form-control" rows="3" placeholder="Your comment..."></textarea>
+        </div>
+        <button ng-click="postComment()" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
 
-                <!-- Comments -->
-                <div class="media" ng-repeat="comment in comments">
-                    <a class="pull-left" href="#/">
-                        <img class="media-object" src="http://placehold.it/64x64" alt="">
-                    </a>
-                    <div class="media-body">
-                        <h4 class="media-heading">{{comment.summary}}
-                            <small>{{comment.timestamp | date}}</small>
-                        </h4>
-                        {{comment.text}}
-                    </div>
-                </div>
-
-                        <!-- Nested Comment -->
-                        <!-- paste after comment.text
-                        <div class="media">
-                            <a class="pull-left" href="#">
-                                <img class="media-object" src="http://placehold.it/64x64" alt="">
-                            </a>
-                            <div class="media-body">
-                                <h4 class="media-heading">Nested Start Bootstrap
-                                    <small>August 25, 2014 at 9:30 PM</small>
-                                </h4>
-                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                            </div>
-                        </div>
-                    	-->
-                        <!-- End Nested Comment -->
-
-            </div>
+</div>
