@@ -23,6 +23,21 @@ app.controller('PostPageController', function($scope, BlogService, $routeParams)
 			$scope.commentForm.$setPristine();
 			$scope.summary = '';
 			$scope.text = '';
+
+			BlogService.getComments($routeParams.id).then(function(payload) {
+				$scope.comments = payload.data;
+			});
+		});	
+	};
+
+	$scope.deleteComment = function(index) {
+		BlogService.deleteComment({
+			"postId": $routeParams.id,
+			"commentId": $scope.comments[index].id,
+		}).then(function(){
+			BlogService.getComments($routeParams.id).then(function(payload) {
+				$scope.comments = payload.data;
+			});
 		});
 	};
 

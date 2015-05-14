@@ -1,4 +1,5 @@
 <!-- Blog Post -->
+
 <!-- Title -->
 <h1>{{post.title}}</h1>
 
@@ -10,16 +11,11 @@
 <!-- Date/Time -->
 <p><span class="glyphicon glyphicon-time"></span> Posted on {{post.timestamp | date}}</p>
 
-<hr>
-
 <!-- Post Content -->
-<p class="lead">{{post.text}}</p>
+<p class="lead">{{post.text}}
+</p>
 
 <hr>
-
-<!-- Blog Comments -->
-
-<!-- Posted Comments -->
 
 <!-- Comments -->
 <div class="media" ng-repeat="comment in comments">
@@ -27,13 +23,18 @@
         <img class="media-object" src="http://placehold.it/64x64" alt="">
     </a>
     <div class="media-body">
-        <h4 class="media-heading">{{comment.summary}}</h4>
+        <h4 class="media-heading">{{comment.summary}}
+            <a class="pull-right" href=""> 
+                <img class="comment-btn" src="img/trash.png" ng-click="deleteComment($index)"/>
+            </a>
+            <a class="pull-right" href=""> 
+                <img class="comment-btn" src="img/pencil.png" />
+            </a>            
+        </h4>
         <small>Posted on {{comment.timestamp | date}}</small>
     <p>{{comment.text}}</p>
     </div>
 </div>
-
-<hr>
 
 <!-- Comments Form -->
 <div class="well">

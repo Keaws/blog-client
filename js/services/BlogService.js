@@ -32,4 +32,11 @@ app.service('BlogService', function($http) {
 		});
 	}
 
+	this.deleteComment = function(params) {
+		return $http({
+			url: 'http://localhost:3003/api/posts/' + params.postId + '/comments/' + params.commentId,
+			method: 'DELETE'
+		})
+	}
+
 });
