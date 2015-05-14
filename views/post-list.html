@@ -1,4 +1,25 @@
-<div ng-repeat="post in posts">
+<!-- New Post button -->
+<button type="button" ng-init="showAddPostBtn=true" ng-show="showAddPostBtn" ng-click="showAddPostBtn=false" class="btn btn-primary">New Post</button>
+
+<!-- Post Form -->
+<div class="well" ng-show="!showAddPostBtn">
+    <form name="postForm" role="form">
+    	<div class="form-group">
+            <input ng-model="title" class="form-control" placeholder="Post title..."></input>
+        </div>
+        <div class="form-group">
+            <input ng-model="author" class="form-control" placeholder="Your name..."></input>
+        </div>
+        <div class="form-group">
+            <textarea ng-model="text" class="form-control" rows="3" placeholder="Your text..."></textarea>
+        </div>
+        <button ng-click="addPost()" type="submit" class="btn btn-primary pull-right">Add</button>
+        <button ng-click="showAddPostBtn=true" type="submit" class="btn btn-primary">Cancel</button>
+    </form>
+</div>
+
+<!-- Posts list-->
+<div ng-repeat="post in posts" ng-show="showAddPostBtn">
     <h2>
         <a href="#/posts/{{post.id}}">{{post.title}}</a>
     </h2>
