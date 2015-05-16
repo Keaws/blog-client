@@ -14,9 +14,9 @@ app.controller('PostPageController', function($scope, BlogService, $routeParams)
 			"commentText": $scope.text
 		}).then(function(){
 			var comment = { 
-			"summary": $scope.summary,
-			"text": $scope.text,
-			"timestamp": Date.now()
+				"summary": $scope.summary,
+				"text": $scope.text,
+				"timestamp": Date.now()
 			};
 
 			$scope.comments.push(comment);
