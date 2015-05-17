@@ -57,4 +57,15 @@ app.service('BlogService', function($http) {
 		});
 	};
 
+	this.editPost = function(params){
+		return $http({
+			url: 'http://localhost:3003/api/posts/' + params.postId,
+			method: 'PUT',
+			data: '{"text":"' + params.postText + '","title":"' + params.postTitle + '","author":"' + params.postAuthor + '"}',
+			headers: {
+    			'Content-Type': 'application/json'
+    		}
+		});
+	};
+
 });

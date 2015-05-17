@@ -1,3 +1,28 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#deleteModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="deleteModalLabel">Are you sure you want to delete the post?</h4>
+      </div>
+      <!-- <div class="modal-body">
+        ...
+      </div> -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <!-- New Post button -->
 <button type="button" ng-init="showAddPostBtn=true" ng-show="showAddPostBtn" ng-click="showAddPostBtn=false" class="btn btn-primary">New Post</button>
 
@@ -19,14 +44,14 @@
 </div>
 
 <!-- Posts list-->
-<div ng-repeat="post in posts | orderBy:'id':true" ng-show="showAddPostBtn">
+<div ng-repeat="post in posts" ng-show="showAddPostBtn">
     <h2>
         <a href="#/posts/{{post.id}}">{{post.title}}</a>
-        <a class="pull-right" href=""> 
-                <img class="comment-btn" src="img/trash.png" ng-click="deletePost($index)"/>
+        <a class="pull-right" href="#deleteModal" title="Delete post"> 
+                <img class="comment-btn" src="img/trash.png" ng-click="deletePost($index)" data-toggle="modal" data-target="#deleteModal"/>
         </a>
-        <a class="pull-right" href=""> 
-                <img class="comment-btn" src="img/pencil.png" />
+        <a class="pull-right" href="" title="Edit post"> 
+                <img class="comment-btn" src="img/pencil.png" ng-click="editPost($index)" />
         </a>
     </h2>
     <p class="lead">by 
