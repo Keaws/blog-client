@@ -22,26 +22,27 @@
     <a class="pull-left" href="#/">
         <img class="media-object" src="http://placehold.it/64x64" alt="">
     </a>
+
     <div class="media-body">
         <h4 class="media-heading">{{comment.summary}}
-            <a class="pull-right" href=""> 
+            <a class="pull-right" href="">
                 <img class="comment-btn" src="img/trash.png" ng-click="deleteComment($index)"/>
             </a>
-            <a class="pull-right" href=""> 
-                <img class="comment-btn" src="img/pencil.png" />
-            </a>            
+            <a class="pull-right" href="">
+                <img class="comment-btn" src="img/pencil.png"/>
+            </a>
         </h4>
         <small>Posted on {{comment.timestamp | date}}</small>
-    <p>{{comment.text}}</p>
+        <p>{{comment.text}}</p>
     </div>
 </div>
 
 <!-- Comments Form -->
 <div class="well">
-    
+
     <form name="commentForm" role="form">
-    	<div class="form-group">
-            <input ng-model="summary" class="form-control" placeholder="Your summary..."></input>
+        <div class="form-group">
+            <input ng-model="summary" class="form-control" placeholder="Your summary...">
         </div>
         <div class="form-group">
             <textarea ng-model="text" class="form-control" rows="3" placeholder="Your comment..."></textarea>
