@@ -31,7 +31,7 @@
 </button>
 
 <!-- Post Form -->
-<div class="well" ng-show="!showAddPostBtn" name="postForm">
+<div class="well" ng-show="!showAddPostBtn">
     <form name="postForm" role="form">
         <div class="form-group">
             <input ng-model="title" class="form-control" placeholder="Post title...">
@@ -52,11 +52,11 @@
     <h2>
         <a href="#/posts/{{post.id}}">{{post.title}}</a>
         <a class="pull-right" href="#deleteModal" title="Delete post">
-            <img class="comment-btn" src="img/trash.png" ng-click="deletePost($index)" data-toggle="modal"
+            <img class="comment-btn" src="../img/trash.png" ng-click="deletePost($index)" data-toggle="modal"
                  data-target="#deleteModal"/>
         </a>
         <a class="pull-right" href="" title="Edit post">
-            <img class="comment-btn" src="img/pencil.png" ng-click="editPost($index)"/>
+            <img class="comment-btn" src="../img/pencil.png" ng-click="editPost($index)"/>
         </a>
     </h2>
 
