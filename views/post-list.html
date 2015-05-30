@@ -32,17 +32,17 @@
 
 <!-- Post Form -->
 <div class="well" ng-show="!showAddPostBtn">
-    <form name="postForm" role="form">
+    <form name="postForm" role="form" novalidate>
         <div class="form-group">
-            <input ng-model="title" class="form-control" placeholder="Post title...">
+            <input ng-model="title" class="form-control" placeholder="Post title..." required>
         </div>
         <div class="form-group">
-            <input ng-model="author" class="form-control" placeholder="Your name...">
+            <input ng-model="author" class="form-control" placeholder="Your name..." required>
         </div>
         <div class="form-group">
-            <textarea ng-model="text" class="form-control" rows="3" placeholder="Your text..."></textarea>
+            <textarea ng-model="text" class="form-control" rows="3" placeholder="Your text..." required></textarea>
         </div>
-        <button ng-click="addPost()" type="submit" class="btn btn-primary">Add</button>
+        <button ng-click="addPost()" ng-disabled="!postForm.$valid" type="submit" class="btn btn-primary">Add</button>
         <button ng-click="showAddPostBtn=true" type="submit" class="btn btn-primary pull-right">Cancel</button>
     </form>
 </div>

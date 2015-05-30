@@ -40,13 +40,13 @@
 <!-- Comments Form -->
 <div class="well">
 
-    <form name="commentForm" role="form">
+    <form name="commentForm" role="form" novalidate>
         <div class="form-group">
-            <input ng-model="summary" class="form-control" placeholder="Your summary...">
+            <input ng-model="summary" class="form-control" placeholder="Your summary..." required>
         </div>
         <div class="form-group">
-            <textarea ng-model="text" class="form-control" rows="3" placeholder="Your comment..."></textarea>
+            <textarea ng-model="text" class="form-control" rows="3" placeholder="Your comment..." required></textarea>
         </div>
-        <button ng-click="postComment()" type="submit" class="btn btn-primary">Submit</button>
+        <button ng-click="postComment()" ng-disabled="!commentForm.$valid" type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
