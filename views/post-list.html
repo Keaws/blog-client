@@ -27,8 +27,7 @@
 
 <!-- New Post button -->
 <button type="button" ng-init="showAddPostBtn=true" ng-show="showAddPostBtn" ng-click="showAddPostBtn=false"
-        class="btn btn-primary">New Post
-</button>
+        class="btn btn-primary">New Post</button>
 
 <!-- Post Form -->
 <div class="well" ng-show="!showAddPostBtn">
@@ -68,7 +67,7 @@
     <hr>
 
     <p>{{post.text}}</p>
-    <a class="btn btn-primary" href="#/">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+    <a class="btn btn-primary" href="#/posts/{{post.id}}">Read More<span class="glyphicon glyphicon-chevron-right"></span></a>
 
     <hr>
 </div>

@@ -1,0 +1,36 @@
+{
+  "name": "blog-client",
+  "version": "1.0.0",
+  "description": "blog project",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "chai": "^2.3.0",
+    "chromedriver": "^2.15.1",
+    "protractor": "^2.1.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.5"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Keaws/blog-client"
+  },
+  "keywords": [
+    "blog",
+    "client",
+    "rest",
+    "angular"
+  ],
+  "author": "Vitalii Kalchuk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Keaws/blog-client/issues"
+  },
+  "homepage": "https://github.com/Keaws/blog-client"
+}
