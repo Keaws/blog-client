@@ -60,7 +60,7 @@ describe('Blog', function() {
         element(by.model('text')).sendKeys('autoText');
         element(by.buttonText('Submit')).click();
 
-        element.all(by.css('img.del-btn')).first().click();
+        element.all(by.css('[title="Delete"]')).first().click();
         element.all(by.repeater('comment in comments')).then(function (comments) {
             assert.equal(comments.length, commentsCount, 'Check count of comments after deleting');
         });

@@ -26,10 +26,10 @@
     <div class="media-body">
         <h4 class="media-heading">{{comment.summary}}
             <a class="pull-right" href="">
-                <img class="comment-btn del-btn" src="../img/trash.png" ng-click="deleteComment($index)"/>
+                <img class="comment-btn" title="Delete" src="../img/trash.png" ng-click="deleteComment($index)"/>
             </a>
             <a class="pull-right" href="">
-                <img class="comment-btn edit-btn" src="../img/pencil.png"/>
+                <img class="comment-btn" title="Edit" src="../img/pencil.png"/>
             </a>
         </h4>
         <small>Posted on {{comment.timestamp | date}}</small>
