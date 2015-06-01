@@ -26,23 +26,24 @@
 
 
 <!-- New Post button -->
-<button type="button" ng-init="showAddPostBtn=true" ng-show="showAddPostBtn" ng-click="showAddPostBtn=false"
+<button type="button" ng-init="showAddPostBtn=true" ng-show="showAddPostBtn" ng-click="showAddPostBtn=false; showUpdateBtn=false"
         class="btn btn-primary">New Post</button>
 
 <!-- Post Form -->
 <div class="well" ng-show="!showAddPostBtn">
     <form name="postForm" role="form" novalidate>
         <div class="form-group">
-            <input ng-model="title" class="form-control" placeholder="Post title..." required>
+            <input ng-model="post.title" class="form-control" placeholder="Post title..." required>
         </div>
         <div class="form-group">
-            <input ng-model="author" class="form-control" placeholder="Your name..." required>
+            <input ng-model="post.author" class="form-control" placeholder="Your name..." required>
         </div>
         <div class="form-group">
-            <textarea ng-model="text" class="form-control" rows="3" placeholder="Your text..." required></textarea>
+            <textarea ng-model="post.text" class="form-control" rows="3" placeholder="Your text..." required></textarea>
         </div>
-        <button ng-click="addPost()" ng-disabled="!postForm.$valid" type="submit" class="btn btn-primary">Add</button>
-        <button ng-click="showAddPostBtn=true" type="submit" class="btn btn-primary pull-right">Cancel</button>
+        <button ng-click="addPost()" ng-hide="showUpdateBtn" ng-disabled="!postForm.$valid" type="submit" class="btn btn-primary">Add</button>
+        <button ng-click="editPost()" ng-show="showUpdateBtn" ng-disabled="!postForm.$valid" type="submit" class="btn btn-primary">Update</button>
+        <button ng-click="showAddPostBtn=true; clearPostForm()" type="submit" class="btn btn-primary pull-right">Cancel</button>
     </form>
 </div>
 
@@ -55,7 +56,7 @@
                  data-target="#deleteModal"/>
         </a>
         <a class="pull-right" href="" title="Edit post">
-            <img class="comment-btn" src="../img/pencil.png" ng-click="editPost($index)"/>
+            <img class="comment-btn" src="../img/pencil.png" ng-click="prepopulatePost($index)"/>
         </a>
     </h2>
 

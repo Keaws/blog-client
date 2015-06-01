@@ -4,30 +4,32 @@ app.controller('MainController', function ($scope, BlogService) {
     });
 
     $scope.addPost = function () {
-        BlogService.addPost({
-            "text": $scope.text,
-            "title": $scope.title,
-            "author": $scope.author,
+        var post = {
+            "text": $scope.post.text,
+            "title": $scope.post.title,
+            "author": $scope.post.author,
             "timestamp": Date.now()
-        }).then(function () {
-            var post = {
-                "title": $scope.title,
-                "text": $scope.text,
-                "timestamp": Date.now(),
-                "author": $scope.author
-            };
+        };
 
+        BlogService.addPost(post).then(function () {
             $scope.posts.push(post);
-            $scope.postForm.$setPristine();
-            $scope.text = '';
-            $scope.title = '';
-            $scope.author = '';
+            $scope.clearPostForm();
             $scope.showAddPostBtn = true;
 
             BlogService.getPosts().then(function (payload) {
                 $scope.posts = payload.data;
             });
         });
+    };
+
+    $scope.clearPostForm = function() {
+        var clearedForm = {
+            "title": "",
+            "text": ""
+        };
+
+        $scope.postForm.$setPristine();
+        $scope.post = clearedForm;
     };
 
     $scope.deletePost = function (index) {
@@ -37,4 +39,32 @@ app.controller('MainController', function ($scope, BlogService) {
             });
         });
     };
+
+    $scope.prepopulatePost = function (index) {
+        $scope.showUpdateBtn = true;
+        $scope.showAddPostBtn = false;
+        $scope.postIndexToUpdate = index;
+
+        $scope.post = {
+            "title": $scope.posts[index].title,
+            "text": $scope.posts[index].text,
+            "author": $scope.posts[index].author
+        };
+    };
+
+    $scope.editPost = function() {
+        var postId = $scope.posts[$scope.postIndexToUpdate].id;
+        BlogService.editPost({
+            "postId": postId,
+            "postText": $scope.post.text,
+            "postTitle": $scope.post.title,
+            "postAuthor": $scope.post.author
+        }).then(function() {
+            $scope.clearPostForm();
+            $scope.showAddPostBtn = true;
+            BlogService.getPosts().then(function (payload) {
+                $scope.posts = payload.data;
+            });
+        })
+    }
 });

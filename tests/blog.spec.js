@@ -16,9 +16,9 @@ describe('Blog', function() {
 
     it('should add a post', function() {
         element(by.buttonText('New Post')).click();
-        element(by.model('title')).sendKeys('autoPost');
-        element(by.model('author')).sendKeys('autoAuthor');
-        element(by.model('text')).sendKeys('autoText');
+        element(by.model('post.title')).sendKeys('autoPost');
+        element(by.model('post.author')).sendKeys('autoAuthor');
+        element(by.model('post.text')).sendKeys('autoText');
         element(by.buttonText('Add')).click();
         element.all(by.repeater('post in posts')).then(function (posts) {
             assert.equal(posts.length, 3, 'Check count of posts after adding one');

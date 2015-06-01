@@ -61,7 +61,7 @@ app.service('BlogService', function ($http) {
         return $http({
             url: 'http://localhost:3003/api/posts/' + params.postId,
             method: 'PUT',
-            data: '{"text":"' + params.postText + '","title":"' + params.postTitle + '","author":"' + params.postAuthor + '"}',
+            data: '{"text":"' + params.postText + '","title":"' + params.postTitle + '","author":"' + params.postAuthor + '","timestamp":"' + Date.now() + '"}',
             headers: {
                 'Content-Type': 'application/json'
             }
