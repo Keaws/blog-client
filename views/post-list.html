@@ -36,7 +36,7 @@
             <input ng-model="post.author" class="form-control" placeholder="Your name..." required>
         </div>
         <div class="form-group">
-            <textarea ng-model="post.text" class="form-control" rows="3" placeholder="Your text..." required></textarea>
+            <textarea ng-model="post.text" class="form-control" rows="3" placeholder="Your text..." required maxlength="1000"></textarea>
         </div>
         <button ng-click="addPost()" ng-hide="showUpdateBtn" ng-disabled="!postForm.$valid" type="submit"
                 class="btn btn-primary">Add
@@ -70,7 +70,7 @@
 
     <hr>
 
-    <p>{{post.text}}</p>
+    <p ng-bind-html="post.text | limitTo:500"></p>
     <a class="btn btn-primary" href="#/posts/{{post.id}}">Read More<span
             class="glyphicon glyphicon-chevron-right"></span></a>
 

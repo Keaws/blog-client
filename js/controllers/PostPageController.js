@@ -10,8 +10,8 @@ app.controller('PostPageController', function ($scope, BlogService, $routeParams
     $scope.postComment = function () {
         BlogService.postComment({
             "postId": $routeParams.id,
-            "commentSummary": $scope.comment.summary,
-            "commentText": $scope.comment.text
+            "commentSummary": $scope.comment.summary.replace(/["']/g, ""),
+            "commentText": $scope.comment.text.replace(/\r?\n/g, '<br />').replace(/["']/g, "")
         }).then(function () {
             var comment = {
                 "summary": $scope.comment.summary,
@@ -65,8 +65,8 @@ app.controller('PostPageController', function ($scope, BlogService, $routeParams
         BlogService.editComment({
             "postId": $routeParams.id,
             "commentId": $scope.commentIdToUpdate,
-            "commentText": $scope.comment.text,
-            "commentSummary": $scope.comment.summary
+            "commentText": $scope.comment.text.replace(/\r?\n/g, '<br />').replace(/["']/g, ""),
+            "commentSummary": $scope.comment.summary.replace(/["']/g, "")
         }).then(function () {
             $scope.clearCommentForm();
             $scope.updateCommentBtns = false;

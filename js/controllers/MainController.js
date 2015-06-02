@@ -5,9 +5,9 @@ app.controller('MainController', function ($scope, $rootScope, BlogService) {
 
     $scope.addPost = function () {
         var post = {
-            "text": $scope.post.text,
-            "title": $scope.post.title,
-            "author": $scope.post.author,
+            "text": $scope.post.text.replace(/\r?\n/g, '<br />').replace(/["']/g, ""),
+            "title": $scope.post.title.replace(/["']/g, ""),
+            "author": $scope.post.author.replace(/["']/g, ""),
             "timestamp": Date.now()
         };
 
@@ -60,9 +60,9 @@ app.controller('MainController', function ($scope, $rootScope, BlogService) {
         var postId = $scope.posts[$scope.postIndexToUpdate].id;
         BlogService.editPost({
             "postId": postId,
-            "postText": $scope.post.text,
-            "postTitle": $scope.post.title,
-            "postAuthor": $scope.post.author
+            "postText": $scope.post.text.replace(/\r?\n/g, '<br />').replace(/["']/g, ""),
+            "postTitle": $scope.post.title.replace(/["']/g, ""),
+            "postAuthor": $scope.post.author.replace(/["']/g, "")
         }).then(function () {
             $scope.clearPostForm();
             $scope.showAddPostBtn = true;
