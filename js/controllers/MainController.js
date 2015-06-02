@@ -1,4 +1,4 @@
-app.controller('MainController', function ($scope, BlogService) {
+app.controller('MainController', function ($scope, $rootScope, BlogService) {
     BlogService.getPosts().then(function (payload) {
         $scope.posts = payload.data;
     });
@@ -32,8 +32,12 @@ app.controller('MainController', function ($scope, BlogService) {
         $scope.post = clearedForm;
     };
 
-    $scope.deletePost = function (index) {
-        BlogService.deletePost($scope.posts[index].id).then(function () {
+    $scope.setPostIndexToDelete = function (index) {
+        $rootScope.postIndexToDelete = index;
+    };
+
+    $scope.deletePost = function () {
+        BlogService.deletePost($scope.posts[$rootScope.postIndexToDelete].id).then(function () {
             BlogService.getPosts().then(function (payload) {
                 $scope.posts = payload.data;
             });

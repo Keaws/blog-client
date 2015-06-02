@@ -1,8 +1,3 @@
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#deleteModal">
-    Launch demo modal
-</button>
-
 <!-- Modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
      aria-hidden="true">
@@ -18,7 +13,7 @@
             </div> -->
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Delete</button>
+                <button type="submit" class="btn btn-primary" ng-click="deletePost()" data-dismiss="modal">Delete</button>
             </div>
         </div>
     </div>
@@ -60,7 +55,7 @@
     <h2>
         <a href="#/posts/{{post.id}}">{{post.title}}</a>
         <a class="pull-right" href="#deleteModal" title="Delete post">
-            <img class="comment-btn" src="../img/trash.png" ng-click="deletePost($index)" data-toggle="modal"
+            <img class="comment-btn" src="../img/trash.png" ng-click="setPostIndexToDelete($index)" data-toggle="modal"
                  data-target="#deleteModal"/>
         </a>
         <a class="pull-right" href="" title="Edit post">
