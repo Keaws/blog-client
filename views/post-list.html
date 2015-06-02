@@ -56,10 +56,10 @@
         <a href="#/posts/{{post.id}}">{{post.title}}</a>
         <a class="pull-right" href="#deleteModal" title="Delete post">
             <img class="comment-btn" src="../img/trash.png" ng-click="setPostIndexToDelete($index)" data-toggle="modal"
-                 data-target="#deleteModal"/>
+                 data-target="#deleteModal" title="Delete"/>
         </a>
         <a class="pull-right" href="" title="Edit post">
-            <img class="comment-btn" src="../img/pencil.png" ng-click="prepopulatePostForm($index)"/>
+            <img class="comment-btn" src="../img/pencil.png" ng-click="prepopulatePostForm($index)" title="Edit"/>
         </a>
     </h2>
 

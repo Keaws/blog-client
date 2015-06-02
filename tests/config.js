@@ -17,5 +17,6 @@ exports.config = {
     },
     onPrepare: function () {
         browser.manage().window().maximize();
+        require('./utils/elementFinder');
     }
 };
