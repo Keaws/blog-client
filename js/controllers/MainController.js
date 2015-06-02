@@ -22,7 +22,7 @@ app.controller('MainController', function ($scope, BlogService) {
         });
     };
 
-    $scope.clearPostForm = function() {
+    $scope.clearPostForm = function () {
         var clearedForm = {
             "title": "",
             "text": ""
@@ -40,7 +40,7 @@ app.controller('MainController', function ($scope, BlogService) {
         });
     };
 
-    $scope.prepopulatePost = function (index) {
+    $scope.prepopulatePostForm = function (index) {
         $scope.showUpdateBtn = true;
         $scope.showAddPostBtn = false;
         $scope.postIndexToUpdate = index;
@@ -52,14 +52,14 @@ app.controller('MainController', function ($scope, BlogService) {
         };
     };
 
-    $scope.editPost = function() {
+    $scope.editPost = function () {
         var postId = $scope.posts[$scope.postIndexToUpdate].id;
         BlogService.editPost({
             "postId": postId,
             "postText": $scope.post.text,
             "postTitle": $scope.post.title,
             "postAuthor": $scope.post.author
-        }).then(function() {
+        }).then(function () {
             $scope.clearPostForm();
             $scope.showAddPostBtn = true;
             BlogService.getPosts().then(function (payload) {

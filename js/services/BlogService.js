@@ -68,4 +68,15 @@ app.service('BlogService', function ($http) {
         });
     };
 
+    this.editComment = function (params) {
+        return $http({
+            url: 'http://localhost:3003/api/posts/' + params.postId + '/comments/' + params.commentId,
+            method: 'PUT',
+            data: '{"text":"' + params.commentText + '","summary":"' + params.commentSummary + '","timestamp":"' + Date.now() + '"}',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+    }
+
 });

@@ -3,18 +3,18 @@
  */
 var assert = require('chai').assert;
 
-describe('Blog', function() {
+describe('Blog', function () {
     beforeEach(function () {
         browser.get('http://' + browser.params.server + ':' + browser.params.port);
     });
 
-    it('should have 2 posts by default', function() {
+    it('should have 2 posts by default', function () {
         element.all(by.repeater('post in posts')).then(function (posts) {
             assert.equal(posts.length, 2, 'Check count of posts by default');
         });
     });
 
-    it('should add a post', function() {
+    it('should add a post', function () {
         element(by.buttonText('New Post')).click();
         element(by.model('post.title')).sendKeys('autoPost');
         element(by.model('post.author')).sendKeys('autoAuthor');
@@ -25,13 +25,13 @@ describe('Blog', function() {
         });
     });
 
-    it('should navigate to first default post', function() {
+    it('should navigate to first default post', function () {
         element.all(by.css('a.btn')).first().click();
         assert.ok(element(by.model('summary')).isPresent());
         assert.ok(element(by.model('text')).isPresent());
     });
 
-    it('should add comment to a post', function() {
+    it('should add comment to a post', function () {
         element.all(by.css('a.btn')).first().click();
 
         var commentsCount = 0;
@@ -48,7 +48,7 @@ describe('Blog', function() {
         });
     });
 
-    it('should delete comment', function() {
+    it('should delete comment', function () {
         element.all(by.css('a.btn')).first().click();
 
         var commentsCount = 0;

@@ -15,7 +15,7 @@ exports.config = {
         server: 'localhost',
         port: 8080
     },
-    onPrepare: function() {
+    onPrepare: function () {
         browser.manage().window().maximize();
     }
 };

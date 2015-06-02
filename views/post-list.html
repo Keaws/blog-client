@@ -26,8 +26,10 @@
 
 
 <!-- New Post button -->
-<button type="button" ng-init="showAddPostBtn=true" ng-show="showAddPostBtn" ng-click="showAddPostBtn=false; showUpdateBtn=false"
-        class="btn btn-primary">New Post</button>
+<button type="button" ng-init="showAddPostBtn=true" ng-show="showAddPostBtn"
+        ng-click="showAddPostBtn=false; showUpdateBtn=false"
+        class="btn btn-primary">New Post
+</button>
 
 <!-- Post Form -->
 <div class="well" ng-show="!showAddPostBtn">
@@ -41,9 +43,15 @@
         <div class="form-group">
             <textarea ng-model="post.text" class="form-control" rows="3" placeholder="Your text..." required></textarea>
         </div>
-        <button ng-click="addPost()" ng-hide="showUpdateBtn" ng-disabled="!postForm.$valid" type="submit" class="btn btn-primary">Add</button>
-        <button ng-click="editPost()" ng-show="showUpdateBtn" ng-disabled="!postForm.$valid" type="submit" class="btn btn-primary">Update</button>
-        <button ng-click="showAddPostBtn=true; clearPostForm()" type="submit" class="btn btn-primary pull-right">Cancel</button>
+        <button ng-click="addPost()" ng-hide="showUpdateBtn" ng-disabled="!postForm.$valid" type="submit"
+                class="btn btn-primary">Add
+        </button>
+        <button ng-click="editPost()" ng-show="showUpdateBtn" ng-disabled="!postForm.$valid" type="submit"
+                class="btn btn-primary">Update
+        </button>
+        <button ng-click="showAddPostBtn=true; clearPostForm()" type="submit" class="btn btn-primary pull-right">
+            Cancel
+        </button>
     </form>
 </div>
 
@@ -56,7 +64,7 @@
                  data-target="#deleteModal"/>
         </a>
         <a class="pull-right" href="" title="Edit post">
-            <img class="comment-btn" src="../img/pencil.png" ng-click="prepopulatePost($index)"/>
+            <img class="comment-btn" src="../img/pencil.png" ng-click="prepopulatePostForm($index)"/>
         </a>
     </h2>
 
@@ -68,7 +76,8 @@
     <hr>
 
     <p>{{post.text}}</p>
-    <a class="btn btn-primary" href="#/posts/{{post.id}}">Read More<span class="glyphicon glyphicon-chevron-right"></span></a>
+    <a class="btn btn-primary" href="#/posts/{{post.id}}">Read More<span
+            class="glyphicon glyphicon-chevron-right"></span></a>
 
     <hr>
 </div>
